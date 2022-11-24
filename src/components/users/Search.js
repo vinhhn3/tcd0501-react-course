@@ -18,6 +18,11 @@ export class Search extends Component {
     this.setState({ text: "" });
   };
 
+  handleClear = (event) => {
+    event.preventDefault();
+    this.props.clearUsers();
+  };
+
   render() {
     return (
       <div>
@@ -34,6 +39,12 @@ export class Search extends Component {
             type="submit"
             className="btn btn-dark btn-block"
           ></input>
+          <button
+            onClick={this.handleClear}
+            className="btn btn-light btn-block"
+          >
+            Clear
+          </button>
         </form>
       </div>
     );
