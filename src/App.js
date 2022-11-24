@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Component } from "react";
 
 import "./App.css";
@@ -12,7 +13,14 @@ class App extends Component {
   };
 
   searchUsers = (text) => {
-    this.setState({ searchText: text });
+    axios
+      .get(`https://api.github.com/search/users?q=${text}`)
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          usersData: response.data.items,
+        });
+      });
   };
 
   render() {
@@ -22,7 +30,6 @@ class App extends Component {
         <div className="container">
           <Search searchUsers={this.searchUsers} />
           <Users usersData={this.state.usersData} />
-          {this.state.searchText}
         </div>
       </div>
     );
