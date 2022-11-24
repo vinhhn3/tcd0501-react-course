@@ -12,15 +12,11 @@ class App extends Component {
     searchText: "",
   };
 
-  searchUsers = (text) => {
-    axios
-      .get(`https://api.github.com/search/users?q=${text}`)
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          usersData: response.data.items,
-        });
-      });
+  searchUsers = async (text) => {
+    const response = await axios.get(
+      `https://api.github.com/search/users?q=${text}`
+    );
+    this.setState({ usersData: response.data.items });
   };
 
   render() {
