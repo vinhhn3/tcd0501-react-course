@@ -14,9 +14,8 @@ export class Search extends Component {
       alert("Required");
       return;
     }
-    this.setState({
-      text: "",
-    });
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: "" });
   };
 
   render() {
