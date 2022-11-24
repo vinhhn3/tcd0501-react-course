@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import Search from "./components/users/Search";
+import User from "./components/users/User";
 import Users from "./components/users/Users";
 
 class App extends Component {
@@ -44,6 +45,9 @@ class App extends Component {
               </Route>
               <Route exact path="/about">
                 <About />
+              </Route>
+              <Route exact path="/user/:login">
+                <User />
               </Route>
               <Route path="*">
                 <NotFound />
