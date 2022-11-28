@@ -14,6 +14,7 @@ class App extends Component {
   state = {
     usersData: [],
     searchText: "",
+    user: {},
   };
 
   searchUsers = async (text) => {
@@ -25,6 +26,13 @@ class App extends Component {
 
   clearUsers = () => {
     this.setState({ usersData: [] });
+  };
+
+  getUser = async (loginId) => {
+    const response = await axios.get(`https://api.github.com/users/${loginId}`);
+    this.setState({
+      user: response.data,
+    });
   };
 
   render() {
@@ -47,7 +55,7 @@ class App extends Component {
                 <About />
               </Route>
               <Route exact path="/user/:loginId">
-                <User />
+                <User user={this.state.user} getUser={this.getUser} />
               </Route>
               <Route path="*">
                 <NotFound />

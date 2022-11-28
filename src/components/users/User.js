@@ -1,17 +1,11 @@
-import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-function User() {
+const User = (props) => {
   const { loginId } = useParams();
-  const [user, setUser] = useState({});
-  const fetchData = async () => {
-    const response = await axios.get(`https://api.github.com/users/${loginId}`);
-    setUser(response.data);
-  };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    fetchData();
+    props.getUser(loginId);
   }, []);
 
   const {
@@ -29,7 +23,7 @@ function User() {
     blog,
     webiste,
     public_gists,
-  } = user;
+  } = props.user;
   return (
     <div>
       <Fragment>
@@ -75,6 +69,6 @@ function User() {
       </div>
     </div>
   );
-}
+};
 
 export default User;
