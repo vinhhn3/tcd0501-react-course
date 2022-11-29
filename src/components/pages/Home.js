@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "../layout/Navbar";
-import Search from "../users/Search";
+import SearchBody from "../layout/SearchBody";
 import User from "../users/User";
-import Users from "../users/Users";
 import About from "./About";
 import NotFound from "./NotFound";
 
@@ -14,10 +13,7 @@ function Home() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Fragment>
-              <Search />
-              <Users />
-            </Fragment>
+            <SearchBody />
           </Route>
           <Route exact path="/about">
             <About />
