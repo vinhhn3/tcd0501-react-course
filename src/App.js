@@ -26,6 +26,7 @@ class App extends Component {
 
   clearUsers = () => {
     this.setState({ usersData: [] });
+    this.setState({ user: {} });
   };
 
   getUser = async (loginId) => {
