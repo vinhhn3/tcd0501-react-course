@@ -15,7 +15,10 @@ export default (state, action) => {
         user: {},
       };
     case GET_USER:
-      return {};
+      return {
+        ...state,
+        user: action.payload,
+      };
     default:
       return state;
   }

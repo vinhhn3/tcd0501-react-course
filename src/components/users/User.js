@@ -1,11 +1,13 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import GithubContext from "../context/github/githubContext";
 const User = (props) => {
+  const githubContext = useContext(GithubContext);
+  const { getUser, user } = githubContext;
   const { loginId } = useParams();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    props.getUser(loginId);
+    getUser(loginId);
   }, []);
 
   const {
@@ -23,7 +25,7 @@ const User = (props) => {
     blog,
     webiste,
     public_gists,
-  } = props.user;
+  } = user;
   return (
     <div>
       <Fragment>

@@ -1,5 +1,4 @@
-import axios from "axios";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -12,20 +11,6 @@ import User from "./components/users/User";
 import Users from "./components/users/Users";
 
 const App = () => {
-  const [user, setUser] = useState({});
-
-  // const searchUsers = async (text) => {
-  //   const response = await axios.get(
-  //     `https://api.github.com/search/users?q=${text}`
-  //   );
-  //   setUsersData(response.data.items);
-  // };
-
-  const getUser = async (loginId) => {
-    const response = await axios.get(`https://api.github.com/users/${loginId}`);
-    setUser(response.data);
-  };
-
   return (
     <GithubState>
       <Router>
@@ -43,7 +28,7 @@ const App = () => {
                 <About />
               </Route>
               <Route exact path="/user/:loginId">
-                <User user={user} getUser={getUser} />
+                <User />
               </Route>
               <Route path="*">
                 <NotFound />
