@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import GithubContext from "../context/github/githubContext";
+import GitHubContext from "../../context/github/githubContext";
 const User = (props) => {
-  const githubContext = useContext(GithubContext);
+  const githubContext = useContext(GitHubContext);
   const { getUser, user } = githubContext;
   const { loginId } = useParams();
   // eslint-disable-next-line react-hooks/exhaustive-deps

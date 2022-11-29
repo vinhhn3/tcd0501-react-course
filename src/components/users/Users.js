@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import GithubContext from "../context/github/githubContext";
+import GitHubContext from "../../context/github/githubContext";
 import UserItem from "./UserItem";
 const Users = () => {
-  const githubContext = useContext(GithubContext);
+  const githubContext = useContext(GitHubContext);
 
   const { usersData } = githubContext;
   return (
