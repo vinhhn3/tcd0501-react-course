@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseUrl: "https://api.github.com",
+  baseURL: "https://api.github.com",
 });
 
 const getGithubUsers = (login) => {
